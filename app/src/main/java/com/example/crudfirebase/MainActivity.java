@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected  void onStop(){
         super.onStop();
-        mainAdapter.startListening();
+        mainAdapter.stopListening();
     }
 
     @Override
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void txtSearch(String str){
         FirebaseRecyclerOptions<MainModel> options = new FirebaseRecyclerOptions.Builder<MainModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("Programacion Android"). orderByChild("nombre")
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("Programacion Android").orderByChild("Nombre")
                         .startAt(str).endAt(str+"~"),MainModel.class)
                 .build();
 
